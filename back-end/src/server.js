@@ -4,6 +4,7 @@ import mongoose from 'mongoose'
 require('dotenv').config()
 const user = require('./models/user')
 const project = require('./models/project')
+const task = require('./models/task')
 const routes = require('./routes/index')
 const app = express()
 

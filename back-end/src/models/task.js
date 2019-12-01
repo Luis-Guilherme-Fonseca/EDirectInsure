@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const TaskSchema = new mongoose.Schema({
-  task: {
+  title: {
     type: String,
     required: true
   },
@@ -21,6 +21,10 @@ const TaskSchema = new mongoose.Schema({
   project_id: {
     type: String,
     required: true
+  },
+  finished: {
+    type: Boolean,
+    default: false
   }
 })
 

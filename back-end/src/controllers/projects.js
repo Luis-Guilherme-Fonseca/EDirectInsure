@@ -21,7 +21,7 @@ exports.createProject = function(req, res) {
 exports.getProjects = function(req, res) {
   try {
     Project.find({ user_id: res.locals.decoded.id }, function(err, projects) {
-      if(err) res.status(400).json({ message: err.message })
+      if(err) return res.status(400).json({ message: err.message })
 
       res.status(201).json({ projects })
     })
@@ -33,7 +33,7 @@ exports.getProjects = function(req, res) {
 exports.editProject = function(req, res) {
   try {
     Project.findByIdAndUpdate(req.params.projectId, { project: req.body.project }, { new: true }, function(err, project) {
-      if(err) res.status(400).json({ message: err.message })
+      if(err) return res.status(400).json({ message: err.message })
 
       res.status(201).json({ project, message: "project successfuly updated" })
     })
@@ -45,7 +45,7 @@ exports.editProject = function(req, res) {
 exports.deleteProject = function(req, res) {
   try {
     Project.findByIdAndRemove(req.params.projectId, function(err, project) {
-      if(err) res.status(400).json({ message: err.message })
+      if(err) return res.status(400).json({ message: err.message })
 
       res.status(201).json({ message: "project deleted" })
     })
