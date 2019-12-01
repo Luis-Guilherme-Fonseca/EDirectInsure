@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "buildDev": "rm -rf dist && webpack --mode development",
-    "buildProd": "rm -rf dist && webpack --mode production",
+    "buildDev": "webpack --mode development",
+    "buildProd": "webpack --mode production",
     "start": "node ./dist/development.server.js",
     "test": "jest",
     "coverage": "jest --coverage"
@@ -14,13 +14,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.13"
   },
   "devDependencies": {
     "@babel/core": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
+    "dotenv": "^8.2.0",
     "jest": "^24.9.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
