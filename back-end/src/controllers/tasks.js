@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const Task = mongoose.model('Task');
 
 exports.addTask = function(req, res) {
-  console.log(req.body)
   const task = new Task({
     title: req.body.title,
     description: req.body.description,

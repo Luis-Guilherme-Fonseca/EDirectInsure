@@ -13,12 +13,24 @@ mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
 const db = mongoose.connection
 db.on('open', () => console.log('connected to db'))
 
+
 app.use(express.json())
 
+app.options('*', function (req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader('Access-Control-Allow-Methods', '*');
+    res.setHeader("Access-Control-Allow-Headers", "*");
+    res.end();
+});
+
+app.use(function (req, res, next) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader('Access-Control-Allow-Methods', '*');
+    res.setHeader("Access-Control-Allow-Headers", "*");
+    next();
+});
+
 routes(app)
-app.get('/', (req, res) => {
-    res.send(JSON.stringify({"Test": "old data"}))
-})
 
 const PORT = process.env.PORT || 8080
 

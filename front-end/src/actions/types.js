@@ -1,0 +1,7 @@
+export const LOGIN = 'LOGIN'
+export const LOGOUT = 'LOGOUT'
+export const SIGN_UP = 'SIGN_UP'
+export const SET_TOKEN = 'SET_TOKEN'
+export const SET_PROJECTS = 'SET_PROJECTS'
+export const ADD_PROJECT = 'ADD_PROJECT'
+export const SET_TASKS = 'SET_TASKS'

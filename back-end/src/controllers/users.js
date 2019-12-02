@@ -24,6 +24,7 @@ exports.signUp = function(req, res) {
 exports.signIn = function(req, res) {
   User.findOne({ username: req.body.username }, function(err, user) {
     if(err) return res.status(400).json({ error: err })
+    if(!user) return res.status(404).json({ error: 'user not found' })
 
     const valid = bcrypt.compareSync(req.body.password, user.password)
     if(valid) {
